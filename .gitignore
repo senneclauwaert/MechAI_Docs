@@ -1,0 +1,18 @@
+# Internal notes for the project team and AI assistants. Not shared.
+00 Internal/
+
+# Personal Obsidian workspace state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# Never commit the manufacturer's handbook, page images or secrets
+*.pdf
+.env
+# No images from the handbook (page images, screenshots of pages)
+*.png
+*.jpg
+*.jpeg
+*.webp
+page-images/
