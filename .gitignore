@@ -6,7 +6,7 @@
 .obsidian/workspace-mobile.json
 .obsidian/cache
 .trash/
-
+.DS_Store
 # Never commit the manufacturer's handbook, page images or secrets
 *.pdf
 .env
@@ -16,3 +16,5 @@
 *.jpeg
 *.webp
 page-images/
+.claude/
+reviews/
