@@ -8,10 +8,10 @@ Back to [Final Work Hub](../Final%20Work%20Hub.md)
 
 ## Team
 
-| Name            | Proposed role                           | Focus                                                                                                                                                                                                                         |
-| --------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Senne Clauwaert | AI and backend lead, Supercube contact  | Knowledge and assistant modules (handbook ingestion, RAG pipeline, prompts), the test set and evaluation, safety rules, the Supercube integration. Senne works at Supercube as a mechanic, so Senne owns the domain questions |
-| Nehad           | Frontend and platform lead              | React PWA (chat with voice input, karts, stock, photo issues, 3D view), the fleet, issues and inventory modules, Docker Compose and CI/CD                                                                                     |
+| Name            | Proposed role                          | Focus                                                                                                                                                                                                                         |
+| --------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Senne Clauwaert | AI and backend lead, Supercube contact | Knowledge and assistant modules (handbook ingestion, RAG pipeline, prompts), the test set and evaluation, safety rules, the Supercube integration. Senne works at Supercube as a mechanic, so Senne owns the domain questions |
+| Nehad           | Frontend and platform lead             | React PWA (chat with voice input, karts, stock, photo issues, 3D view), the fleet, issues and inventory modules, Docker Compose and CI/CD                                                                                     |
 
 > [!IMPORTANT]
 > The role split is still to confirm. The proposal gives each person one end-to-end area. Whatever we choose, both of us review each other's pull requests, so both can explain the whole system to the jury.
