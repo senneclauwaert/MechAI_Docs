@@ -46,6 +46,6 @@ The documentation uses the same words everywhere, so a reader always knows how f
 ## Quick links
 
 - **Official prototype:** [clickable HTML prototype](https://claude.ai/artifact/JoYu88yrzKTxP49N18dp3D)
-- **Design:** [Figma "Prototype"](https://www.figma.com/design/hWB597CW9ZjhYQPv3eu5DG)
+- **Design:** [Figma "Prototype"](https://www.figma.com/design/hWB597CW9ZjhYQPv3eu5DG), with every v0.7 screen on the page ["v0.7 prototype (6 Nov 2026)"](https://www.figma.com/design/hWB597CW9ZjhYQPv3eu5DG?node-id=72-793)
 - **Code:** the private GitHub repository for the code is created in sprint 1.
 - All other links are in [Project links](11%20Reference/Project%20links.md).

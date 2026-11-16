@@ -1,6 +1,6 @@
 ---
 tags: [design, index]
-updated: 2026-11-06
+updated: 2026-11-16
 ---
 # Design and prototypes
 
@@ -11,7 +11,7 @@ This folder describes what has been made so far that you can click or look at. N
 | Note | What it is | State |
 | --- | --- | --- |
 | [HTML prototype (official)](HTML%20prototype%20%28official%29.md) | The clickable HTML prototype with the profile picker, repair chat, karts, stock and a 3D kart sketch | **The official design reference** |
-| [Figma Prototype](Figma%20Prototype.md) | The Figma file with tablet and phone screens and a clickable flow | Design history (older colours) |
+| [Figma Prototype](Figma%20Prototype.md) | The Figma file: page "v0.7 prototype" has every screen of the official prototype (tablet, desktop, phone); page "Prototype" is the older design | v0.7 page current (16 Nov 2026); old page is history |
 | [Diagrams](Diagrams.md) | The analysis diagrams (architecture, pipeline, data, flows, states, timeline) as Mermaid in this vault | Current |
 | [3D exploded view](3D%20exploded%20view.md) | How the 3D kart sketch is built and how a real model could be made | Semester 2 |
 

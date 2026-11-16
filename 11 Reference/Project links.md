@@ -14,6 +14,7 @@ Every link and file location of the project in one place. Pages on claude.ai are
 | --- | --- | --- |
 | HTML prototype (official design) | https://claude.ai/artifact/JoYu88yrzKTxP49N18dp3D | [HTML prototype (official)](../06%20Design%20and%20Prototypes/HTML%20prototype%20%28official%29.md) |
 | Figma "Prototype" (design history, colours) | https://www.figma.com/design/hWB597CW9ZjhYQPv3eu5DG | [Figma Prototype](../06%20Design%20and%20Prototypes/Figma%20Prototype.md) |
+| Figma page "v0.7 prototype" (every screen of the official prototype) | https://www.figma.com/design/hWB597CW9ZjhYQPv3eu5DG?node-id=72-793 | [Figma Prototype](../06%20Design%20and%20Prototypes/Figma%20Prototype.md) |
 | Diagrams | in this vault | [Diagrams](../06%20Design%20and%20Prototypes/Diagrams.md) |
 
 ## Repositories
