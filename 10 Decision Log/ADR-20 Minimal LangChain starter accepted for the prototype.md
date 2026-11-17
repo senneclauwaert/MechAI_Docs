@@ -20,4 +20,4 @@ Back to [Decision Log](Decision%20Log.md)
 
 **Alternatives considered:** Plain Python from the start.
 
-**Consequences:** Archived on 6 November 2026; the full build is plain Python ([ADR-6 Plain Python + OpenAI SDK for the full build (LangChain only in the starter)](ADR-6%20Plain%20Python%20+%20OpenAI%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)).
+**Consequences:** Archived on 6 November 2026; the full build is plain Python ([ADR-6 Plain Python + provider SDK for the full build (LangChain only in the starter)](ADR-6%20Plain%20Python%20+%20provider%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)).

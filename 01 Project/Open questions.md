@@ -1,6 +1,6 @@
 ---
 tags: [project, open]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Open questions
 
@@ -55,7 +55,7 @@ These details do not block the start of the build. Where a default is given, we 
 
 - **Handbook:** a digital PDF in English (OTL Storm handbook, 89 pages).
 - **Hosting:** Supercube's own servers with Docker Compose, internal network only; no Azure.
-- **AI provider:** the OpenAI API, until Supercube says whether it wants its own account.
+- **AI provider:** the Mistral API (decided 17 November 2026); other models are tested later, and Supercube may still bring its own account.
 - **Stack:** Python with FastAPI; React, TypeScript and Vite as a PWA; plain Python RAG code.
 - **Safety:** three safety levels enforced in code; the AI never writes high-voltage or emergency steps.
 - **Retrieval:** simple baseline first, with translation; extra steps only when the tests show they help.
@@ -68,7 +68,7 @@ All of these are recorded in the [Decision Log](../10%20Decision%20Log/Decision%
 
 ## Raised by the review of 6 November 2026
 
-- [ ] **OpenAI account:** whose account is it, who pays, and what happens to it after the project?
+- [ ] **Mistral account:** whose account is it, who pays, and what happens to it after the project?
 - [ ] **Code ownership:** who owns the code, under which licence, and who maintains it after June 2027?
 - [ ] **Demo data:** where do the kart list and parts list for sprints 2 and 3 come from? How are repair history and stock tracked today?
 - [ ] **Sharing the handbook with Nehad:** through which private channel, and with Supercube's OK?

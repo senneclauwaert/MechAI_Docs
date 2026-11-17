@@ -1,6 +1,6 @@
 ---
 tags: [rag, data, handbook]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Handbook ingestion and parsing
 
@@ -59,4 +59,4 @@ Photographing pages is no longer needed: the PDF has every page. Photos are only
 
 ## Copyright and permission
 
-The handbook belongs to OTL Italia. Having the PDF is not the same as permission: Supercube's written OK is needed to use it in MechAi and to send short excerpts to the OpenAI API. Only a few example pages are shown at school.
+The handbook belongs to OTL Italia. Having the PDF is not the same as permission: Supercube's written OK is needed to use it in MechAi and to send its text to the Mistral API. Only a few example pages are shown at school.

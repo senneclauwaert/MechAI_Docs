@@ -1,6 +1,6 @@
 ---
 tags: [reference, glossary]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Glossary
 
@@ -45,7 +45,7 @@ Every technical term used in this vault, explained in plain words and sorted alp
 | Docling | A free tool that turns PDFs and images into structured text with headings, tables and page numbers |
 | Document revision | One version of a document, such as a handbook edition. Only the current revision is searched |
 | Embedding | The list of numbers a model makes for a text, so similar meanings get similar numbers |
-| Embedding model | The model that makes embeddings (we use OpenAI `text-embedding-3-small`) |
+| Embedding model | The model that makes embeddings (we use Mistral `mistral-embed`) |
 | Error code | A fixed, upper-case name for an error with a module prefix, such as `INVENTORY_STOCK_NEGATIVE`. See [Error handling](../03%20Architecture/Error%20handling.md) |
 | Event bus / broker | Software that delivers messages such as "RepairCompleted" between services. We don't need one |
 | Faithfulness | Whether every claim in an answer is supported by the retrieved sources |
@@ -66,7 +66,7 @@ Every technical term used in this vault, explained in plain words and sorted alp
 | Kubernetes | A system that runs containers across many servers. Only needed if Supercube's IT already uses it |
 | LangChain | A Python library with ready-made building blocks for LLM apps. Kept open as an option; the build uses plain Python |
 | LangGraph | A library for building AI flows with steps, branches and loops. Kept open as an option |
-| LLM | Large language model: the model that writes text, for us a small OpenAI chat model |
+| LLM | Large language model: the model that writes text, for us a small Mistral chat model (Mistral Small) |
 | LLM-as-judge | Using an LLM to grade another LLM's answer |
 | LLMClient | Our own small class around the model, so the model or provider can be swapped in one place |
 | Lost in the middle | The measured effect that LLMs pay less attention to text in the middle of a long prompt than at the start or end |
@@ -110,7 +110,7 @@ Every technical term used in this vault, explained in plain words and sorted alp
 | Safety level | The class a question falls into (emergency, high voltage, normal), decided in code. It decides what the AI may do; see [Safety rules](../04%20RAG%20and%20AI/Safety%20rules.md) |
 | Self-hosting | Running software on your own (here: Supercube's) servers instead of a cloud service |
 | Self-RAG | A RAG pattern where the model decides whether it needs to search, and checks its own answer against the sources |
-| Speech-to-text | Turning spoken audio into text. MechAi uses an OpenAI model so mechanics can ask questions without typing |
+| Speech-to-text | Turning spoken audio into text. MechAi uses Mistral's Voxtral model so mechanics can ask questions without typing |
 | Storage module | The only module that reads and writes files on the volume (`save_file()`, `open_file()`) |
 | Stricter level wins | Our fail-safe rule: when two safety checks disagree, the safer (stricter) level is used |
 | Structured output | Asking the LLM for a fixed format such as JSON, so code can check it |

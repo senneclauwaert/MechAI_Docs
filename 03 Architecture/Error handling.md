@@ -1,6 +1,6 @@
 ---
 tags: [architecture, errors, quality]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Error handling
 
@@ -82,7 +82,7 @@ def stock_negative() -> AppError:
 
 | Problem | What the mechanic sees |
 | --- | --- |
-| OpenAI API down or too slow | Retrieval-only mode: the relevant pages, plus "Steps unavailable, here are the pages" (`ASSISTANT_AI_UNAVAILABLE`) |
+| Mistral API down or too slow | Retrieval-only mode: the relevant pages, plus "Steps unavailable, here are the pages" (`ASSISTANT_AI_UNAVAILABLE`) |
 | AI answers switched off by an admin | The relevant pages (`ASSISTANT_AI_DISABLED`) |
 | Speech-to-text failed | "Could not understand the recording, try again or type" (`ASSISTANT_TRANSCRIBE_FAILED`) |
 | A number in the answer is not on the cited page | All generated steps are dropped; the pages are shown (retrieval-only mode); the trace is flagged |
@@ -90,6 +90,6 @@ def stock_negative() -> AppError:
 ## Rules
 
 - Never swallow an error: log it or return it.
-- Never show a stack trace, a SQL error or an OpenAI error text to the user.
+- Never show a stack trace, a SQL error or an AI provider error text to the user.
 - Never put secrets or handbook text in an error message.
 - Every new error gets a code in the module's `errors.py` and a translation in the frontend in the same pull request.

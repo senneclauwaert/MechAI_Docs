@@ -1,6 +1,6 @@
 ---
 tags: [design, diagrams]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Diagrams
 
@@ -28,7 +28,7 @@ flowchart LR
 	W --> PG
 	API --> VOL
 	W --> VOL
-	API --> OAI["OpenAI API"]
+	API --> OAI["Mistral API (EU)"]
 	W --> OAI
 	API --> SC["Supercube GraphQL API"]
 	W --> SC

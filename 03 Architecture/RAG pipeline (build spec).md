@@ -1,6 +1,6 @@
 ---
 tags: [architecture, rag]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # RAG pipeline (build spec)
 
@@ -28,7 +28,7 @@ flowchart LR
 	S --> C["Chunks with<br>context header"]
 	C --> H{"Same content hash<br>already embedded?"}
 	H -->|yes| R["Reuse the embedding"]
-	H -->|no| E["Embed (text-embedding-3-small)<br>+ full-text column"]
+	H -->|no| E["Embed (mistral-embed)<br>+ full-text column"]
 ```
 
 1. **Upload.** An admin uploads the PDF. The `storage` module saves it on the `files` volume; the API creates a `knowledge.documents` row (with its revision) and a job `ingest_document`.
@@ -36,7 +36,7 @@ flowchart LR
 3. **Page images.** Every page is rendered to a PNG (about 150 dpi) and saved on the volume. These are the images shown in the chat. Pages 81-89 (wiring diagrams) are marked `kind = diagram`.
 4. **Sections.** The text is split by the handbook's own section numbers ("5 Rear axle > 5.3 …") with the page start and end. Tables stay whole. A section longer than about 1,500 tokens is split between procedure steps. Each section gets a `safety_level` from a keyword list (battery, high voltage, controller, …), checked by hand once.
 5. **Chunks.** Each section is cut into chunks of about 300 tokens with 50 overlap. A **context header** is put in front before embedding: `Storm handbook > 5 Rear axle > 5.3 … (p. 38-42)`. This simple step is expected to reduce failed searches; experiment 4 measures it.
-6. **Embeddings, only where needed.** Each chunk gets a `content_hash`. If a chunk with the same hash and the same embedding model already exists, its embedding is reused. Only new or changed chunks are sent to `text-embedding-3-small` (in batches of 64). The full-text column is filled in the same step.
+6. **Embeddings, only where needed.** Each chunk gets a `content_hash`. If a chunk with the same hash and the same embedding model already exists, its embedding is reused. Only new or changed chunks are sent to `mistral-embed` (in batches of 64). The full-text column is filled in the same step.
 7. **Revision switch.** The new revision becomes current (the old one gets `superseded_by`) only after the retrieval evaluation passes, so a bad import never reaches the mechanics.
 
 ## Query pipeline (one question)

@@ -1,6 +1,6 @@
 ---
 tags: [project]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Project overview
 
@@ -48,7 +48,7 @@ There are no personal accounts. The app is installed on shared tablets and phone
 - **Confidential documents.** The handbook belongs to the manufacturer (OTL Italia). It never goes into git or any public place, and Supercube must agree in writing before excerpts are sent to an AI service.
 - **Three languages.** Mechanics speak Dutch, French or English. The handbook is in English, so questions are translated before searching.
 - **Hosting on Supercube's own servers** with Docker Compose, reachable only on the internal network ([ADR-24 Self-hosted on Supercube's servers with Docker Compose, reachable only on the internal network](../10%20Decision%20Log/ADR-24%20Self-hosted%20on%20Supercube's%20servers%20with%20Docker%20Compose,%20reachable%20only%20on%20the%20internal%20network.md)).
-- **Low running cost.** The only usage cost is the OpenAI API, estimated at a few euros a month for one workshop ([Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md)).
+- **Low running cost.** The only usage cost is the Mistral API, estimated at about €5 to €10 a month for one workshop ([Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md)).
 - **Explainable to the jury.** We prefer simple, readable solutions that we can explain step by step.
 
 ## The data

@@ -1,6 +1,6 @@
 ---
 tags: [reviews]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Reviews and proposals
 
@@ -27,13 +27,13 @@ Both reviews accepted the core design: the modular monolith (one backend, one wo
 | No AI-written wiring facts; show the diagram page | **Accepted** | [ADR-29 Citations come from the digital handbook PDF; pages shown as images](../10%20Decision%20Log/ADR-29%20Citations%20come%20from%20the%20digital%20handbook%20PDF;%20pages%20shown%20as%20images.md) |
 | Safer jobs, safe stock moves, document revisions, a richer test set, a signed permissions checklist | **Accepted** | [ADR-36 Engineering safeguards- jobs, stock moves, document revisions, test set, Supercube checklist](../10%20Decision%20Log/ADR-36%20Engineering%20safeguards-%20jobs,%20stock%20moves,%20document%20revisions,%20test%20set,%20Supercube%20checklist.md) |
 | Editing an approved repair note removes its approval | **Accepted** | [ADR-10 Repair notes become a source only after senior approval](../10%20Decision%20Log/ADR-10%20Repair%20notes%20become%20a%20source%20only%20after%20senior%20approval.md) |
-| An EU data-zone deployment of the AI model | **No longer relevant:** the AI provider is the OpenAI API, with Supercube's written OK | [ADR-25 OpenAI API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-25%20OpenAI%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) |
+| An EU data-zone deployment of the AI model | **Met another way:** since 17 November 2026 the AI provider is Mistral, which hosts in the EU; Supercube's written OK is still needed | [ADR-38 Mistral API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) |
 | Relevance check ranks (0 to 3), cross-references are followed, one retry before refusing | **Accepted**, each kept only if the tests improve | [ADR-22 Relevance check also ranks, cross-references are followed, one retry before refusing](../10%20Decision%20Log/ADR-22%20Relevance%20check%20also%20ranks,%20cross-references%20are%20followed,%20one%20retry%20before%20refusing.md) |
 | GraphRAG, HyDE and contextual compression | **Rejected** for one 89-page handbook | [Retrieval technique choice](../04%20RAG%20and%20AI/Retrieval%20technique%20choice.md) |
 
 ## Decisions added by the team on 6 November 2026
 
-Next to the review proposals, the team decided: self-hosting with Docker Compose, the OpenAI API, an operator role, diagnostics and kart status through Supercube's API, a hands-free design with voice input, one error format with error codes, strict code-quality rules, and sharing the documentation through a private GitHub repository. All are in the [Decision Log](../10%20Decision%20Log/Decision%20Log.md).
+Next to the review proposals, the team decided: self-hosting with Docker Compose, the OpenAI API (replaced by the Mistral API on 17 November 2026), an operator role, diagnostics and kart status through Supercube's API, a hands-free design with voice input, one error format with error codes, strict code-quality rules, and sharing the documentation through a private GitHub repository. All are in the [Decision Log](../10%20Decision%20Log/Decision%20Log.md).
 
 ## AI-assisted review of the vault (6 November 2026, evening)
 
@@ -41,7 +41,7 @@ The whole vault was read once more by an AI reviewer. Its main points and what w
 
 | Point | What changed |
 | --- | --- |
-| The full handbook text goes to OpenAI for embeddings, not only short excerpts | The permission question, pitch, risks and planning now say so. Only test pages are used until Supercube's written OK |
+| The full handbook text goes to the AI provider for embeddings, not only short excerpts | The permission question, pitch, risks and planning now say so. Only test pages are used until Supercube's written OK |
 | Removing a failed step makes a procedure look complete | If any number check fails, no steps are shown, only the pages |
 | Diagnostics move a kart while someone may be working on it | A "nobody at the kart" check, an automatic stop after 60 seconds, a block during an open repair; risk raised to Medium |
 | The CI evaluation can't use the real handbook or skip AI calls | CI uses a small fake manual with cached embeddings; the real evaluation runs on the server per handbook version |

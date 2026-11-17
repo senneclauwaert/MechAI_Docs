@@ -1,6 +1,6 @@
 ---
 tags: [analysis, technical]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Technical Analysis (RAG, LLM & stack)
 
@@ -24,11 +24,11 @@ This note sums up the technical choices and the options that were compared. The 
 | Hosting | Docker Compose on Supercube's own server, internal network only | [ADR-24 Self-hosted on Supercube's servers with Docker Compose, reachable only on the internal network](../10%20Decision%20Log/ADR-24%20Self-hosted%20on%20Supercube's%20servers%20with%20Docker%20Compose,%20reachable%20only%20on%20the%20internal%20network.md) |
 | Backend | Python 3.12, FastAPI, SQLAlchemy 2, Alembic | [ADR-7 Backend- Python 3.12, FastAPI, SQLAlchemy 2, Alembic](../10%20Decision%20Log/ADR-7%20Backend-%20Python%203.12,%20FastAPI,%20SQLAlchemy%202,%20Alembic.md) |
 | Frontend | PWA with React, TypeScript and Vite | [ADR-8 Frontend- React + TypeScript + Vite PWA, three.js for the 3D exploded view](../10%20Decision%20Log/ADR-8%20Frontend-%20React%20+%20TypeScript%20+%20Vite%20PWA,%20three.js%20for%20the%203D%20exploded%20view.md), [ADR-18 The frontend is a PWA](../10%20Decision%20Log/ADR-18%20The%20frontend%20is%20a%20PWA.md) |
-| Answer model, embeddings, speech-to-text | OpenAI API: a small chat model, `text-embedding-3-small`, a speech-to-text model | [ADR-25 OpenAI API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-25%20OpenAI%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) |
+| Answer model, embeddings, speech-to-text | Mistral API: Mistral Small, `mistral-embed`, Voxtral speech-to-text | [ADR-38 Mistral API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) |
 | Vector store and search | PostgreSQL with pgvector, hybrid search with RRF | [ADR-4 PostgreSQL + pgvector with hybrid search (RRF)](../10%20Decision%20Log/ADR-4%20PostgreSQL%20+%20pgvector%20with%20hybrid%20search%20%28RRF%29.md) |
 | Parsing | Docling, without OCR (the PDF has real text) | [ADR-17 Docling for parsing and OCR](../10%20Decision%20Log/ADR-17%20Docling%20for%20parsing%20and%20OCR.md) |
 | Retrieval | Baseline first, with English query translation; extra steps only if the tests improve | [ADR-27 Baseline-first retrieval with English query translation](../10%20Decision%20Log/ADR-27%20Baseline-first%20retrieval%20with%20English%20query%20translation.md), [ADR-22 Relevance check also ranks, cross-references are followed, one retry before refusing](../10%20Decision%20Log/ADR-22%20Relevance%20check%20also%20ranks,%20cross-references%20are%20followed,%20one%20retry%20before%20refusing.md) |
-| RAG code | Plain Python with the OpenAI SDK; LangChain and LangGraph stay open as options | [ADR-6 Plain Python + OpenAI SDK for the full build (LangChain only in the starter)](../10%20Decision%20Log/ADR-6%20Plain%20Python%20+%20OpenAI%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md) |
+| RAG code | Plain Python with the Mistral SDK; LangChain and LangGraph stay open as options | [ADR-6 Plain Python + provider SDK for the full build (LangChain only in the starter)](../10%20Decision%20Log/ADR-6%20Plain%20Python%20+%20provider%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md) |
 | Login | Profile picker and personal PIN, four roles | [ADR-12 No accounts- profile picker + personal PIN, 30-minute idle logout](../10%20Decision%20Log/ADR-12%20No%20accounts-%20profile%20picker%20+%20personal%20PIN,%2030-minute%20idle%20logout.md), [ADR-26 Four roles- operator, mechanic, senior mechanic, admin](../10%20Decision%20Log/ADR-26%20Four%20roles-%20operator,%20mechanic,%20senior%20mechanic,%20admin.md) |
 | Supercube system | REST for our API; one `supercube` module talks to Supercube's GraphQL API | [ADR-23 Keep REST for our own API, talk to Supercube's GraphQL API through one adapter module](../10%20Decision%20Log/ADR-23%20Keep%20REST%20for%20our%20own%20API,%20talk%20to%20Supercube's%20GraphQL%20API%20through%20one%20adapter%20module.md) |
 | Safety | Three safety levels enforced in code | [ADR-30 Safety levels enforced in code](../10%20Decision%20Log/ADR-30%20Safety%20levels%20enforced%20in%20code.md) |
@@ -39,7 +39,9 @@ This note sums up the technical choices and the options that were compared. The 
 
 | Option | Notes | Verdict |
 | --- | --- | --- |
-| **OpenAI API, small chat model (chosen)** | Good at following rules and writing structured JSON; multilingual; pay per use with a hard monthly budget limit. OpenAI states that API data is not used for training (to re-check before go-live). | Chosen for now. The model name lives in config, so it can change without code changes |
+| **Mistral API, Mistral Small (chosen)** | French company, EU hosting; follows rules and writes structured JSON; multilingual; also offers embeddings and speech-to-text; about $0.15 / $0.60 per million tokens. Data terms checked before go-live. | Chosen on 17 November 2026. The model name lives in config, so it can change without code changes |
+| DeepSeek | Strong and very cheap for chat | No embeddings or speech-to-text in its API; hosted API stores data in China. To be tested later on the test set |
+| OpenAI API, small chat model | Good at rules and JSON; one provider for all three jobs | Chosen on 6 November 2026, dropped on 17 November 2026 |
 | Supercube's own AI account | Unknown whether Supercube has one | If Supercube prefers it, only the `LLMClient` configuration changes |
 | Azure OpenAI | Same models, hosted by Microsoft | Dropped on 6 November 2026 together with Azure hosting |
 | Claude (Anthropic API) | Very good at citing and following rules | Was the choice on 6 October 2026; replaced to keep one provider for answers and embeddings |
@@ -60,8 +62,8 @@ This note sums up the technical choices and the options that were compared. The 
 
 | Option | Notes | Verdict |
 | --- | --- | --- |
-| **OpenAI `text-embedding-3-small` (chosen)** | 1,536 numbers per text, multilingual, very cheap (about $0.02 per million tokens; the whole handbook costs a fraction of a cent) | Default; the test set checks the quality |
-| OpenAI `text-embedding-3-large` | Better quality, more expensive, 3,072 numbers (must be shortened for the pgvector index) | Fallback if small scores poorly |
+| **Mistral `mistral-embed` (chosen)** | 1,024 numbers per text, multilingual, $0.10 per million tokens (the whole handbook costs under a cent) | Chosen on 17 November 2026; the test set checks the quality |
+| OpenAI `text-embedding-3-small` | 1,536 numbers per text, very cheap | Chosen on 6 November 2026, dropped with OpenAI on 17 November 2026 |
 | BGE-M3 (local, open source) | Strong multilingual model, but needs our own machine | Dropped on 10 October 2026 |
 
 **Updating the knowledge does not mean starting over.** Each chunk stores a content hash (a fingerprint of its text). When a new handbook revision or a new document arrives, only new or changed chunks get new embeddings. Karts and parts are normal database rows and are never embedded. Only a change of embedding model would mean embedding everything again, which for one handbook takes minutes and costs less than a cent.
@@ -78,7 +80,7 @@ This note sums up the technical choices and the options that were compared. The 
 | Repair notes | Created in MechAi | Searchable only after senior approval; rank below the handbook; never the source of a safety step |
 | Issues, history, stock | Created in MechAi | Normal database data; not searched by the assistant in the prototype |
 
-**Permission:** the handbook belongs to OTL Italia. Supercube must agree in writing that MechAi may use it and send its text to the OpenAI API ([Questions for Supercube](../01%20Project/Questions%20for%20Supercube.md)). The handbook never goes into git or anywhere public.
+**Permission:** the handbook belongs to OTL Italia. Supercube must agree in writing that MechAi may use it and send its text to the Mistral API ([Questions for Supercube](../01%20Project/Questions%20for%20Supercube.md)). The handbook never goes into git or anywhere public.
 
 Every chunk stores its metadata: document, revision, section number, heading, page range and language. Code builds the citation from this metadata, so the model never types a page number itself.
 
@@ -94,7 +96,7 @@ flowchart LR
 	W["worker"] --> PG
 	API --> VOL[("files volume<br>page images, photos")]
 	W --> VOL
-	API -->|"answers, speech-to-text"| OAI["OpenAI API"]
+	API -->|"answers, speech-to-text"| OAI["Mistral API (EU)"]
 	W -->|"embeddings"| OAI
 	API -->|"GraphQL"| SC["Supercube API"]
 ```

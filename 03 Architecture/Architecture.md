@@ -1,6 +1,6 @@
 ---
 tags: [architecture, index]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Architecture
 
@@ -13,7 +13,7 @@ Back to [Final Work Hub](../Final%20Work%20Hub.md)
 
 1. **Modular monolith.** One backend program with strict modules inside, plus one background worker and one PostgreSQL database. No microservices, message broker or API gateway. ([ADR-1 Modular monolith- one backend + one worker + one PostgreSQL, no microservices](../10%20Decision%20Log/ADR-1%20Modular%20monolith-%20one%20backend%20+%20one%20worker%20+%20one%20PostgreSQL,%20no%20microservices.md))
 2. **Self-hosted with Docker Compose** on Supercube's server, reachable only on the internal network over HTTPS. Kubernetes files can be added if Supercube's IT uses Kubernetes. ([ADR-24 Self-hosted on Supercube's servers with Docker Compose, reachable only on the internal network](../10%20Decision%20Log/ADR-24%20Self-hosted%20on%20Supercube's%20servers%20with%20Docker%20Compose,%20reachable%20only%20on%20the%20internal%20network.md))
-3. **The OpenAI API** for answers, embeddings and speech-to-text, behind one `LLMClient` so the provider can change in one place. ([ADR-25 OpenAI API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-25%20OpenAI%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md))
+3. **The Mistral API** for answers, embeddings and speech-to-text, behind one `LLMClient` so the provider can change in one place. ([ADR-38 Mistral API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md))
 4. **Baseline-first retrieval.** Translate the question into English search terms, hybrid search, parent section, cited answer, refusal. Improvements are added one at a time and kept only when the test set improves. ([ADR-27 Baseline-first retrieval with English query translation](../10%20Decision%20Log/ADR-27%20Baseline-first%20retrieval%20with%20English%20query%20translation.md))
 5. **Safety levels in code** decide what the AI may do. Emergencies and high-voltage work never get AI-written steps. ([ADR-30 Safety levels enforced in code](../10%20Decision%20Log/ADR-30%20Safety%20levels%20enforced%20in%20code.md))
 6. **REST for our own API; one `supercube` module** talks to Supercube's GraphQL API to read kart status and to mark karts broken or repaired and run diagnostics. A fake client is used until access is granted. ([ADR-23 Keep REST for our own API, talk to Supercube's GraphQL API through one adapter module](../10%20Decision%20Log/ADR-23%20Keep%20REST%20for%20our%20own%20API,%20talk%20to%20Supercube's%20GraphQL%20API%20through%20one%20adapter%20module.md))
@@ -46,7 +46,7 @@ flowchart LR
 	W --> PG
 	API --> VOL
 	W --> VOL
-	API -->|"answers, speech-to-text"| OAI["OpenAI API"]
+	API -->|"answers, speech-to-text"| OAI["Mistral API (EU)"]
 	W -->|"embeddings"| OAI
 	API -->|"GraphQL: status, diagnostics"| SC["Supercube API"]
 	W -->|"GraphQL: sync status, alerts"| SC
@@ -138,7 +138,7 @@ frontend/src/features/issues/
 - **Application:** Pydantic validation, ORM-only SQL, upload type and size checks, rate limits per user (also a cost guard).
 - **AI:** sources are passed as data, never as instructions; repair notes count only after approval; the output must match a JSON schema; every number and citation is checked in code.
 - **Supply chain:** pinned dependencies, Dependabot, GitHub secret scanning, a container image scan (Trivy), small base images and a non-root container user.
-- **Privacy:** only the handbook sections needed for one question go to OpenAI; no handbook text in logs; traces stay in our own database on Supercube's server.
+- **Privacy:** only the handbook sections needed for one question go to Mistral; no handbook text in logs; traces stay in our own database on Supercube's server.
 
 ## Detailed build notes
 

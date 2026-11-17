@@ -2,7 +2,7 @@
 tags: [project, pitch]
 created: 2026-10-05
 author: Senne Clauwaert
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Pitch & WHY
 
@@ -68,12 +68,12 @@ MechAi is a workshop assistant. You choose a kart and ask your question out loud
 What Supercube gets: a working prototype on our own servers, a test report that shows how accurate the answers are, and in the second semester repair notes, to-dos and a full connection with the kart system.
 
 What we need from Supercube:
-- Written permission to use the handbook in the app and to send its text to the AI service (OpenAI): the full text once for the search index, then the matching sections per question
+- Written permission to use the handbook in the app and to send its text to the AI service (Mistral): the full text once for the search index, then the matching sections per question
 - Access to the GraphQL API (a test environment if possible) and a server to run MechAi on
 - The fixed safety texts for high-voltage work and emergencies
 - About 30 minutes each with two or three colleagues, for interviews and later to test the prototype
 
-Your documents stay yours. They are used only for MechAi and deleted on request. To search and answer, the handbook text is sent to the OpenAI API: the full text once per version to build the search index, and the matching sections for each question. OpenAI does not use API data to train its models. The assistant can be wrong, so every answer shows its source and the mechanic always makes the final call.
+Your documents stay yours. They are used only for MechAi and deleted on request. To search and answer, the handbook text is sent to the Mistral API, a French AI service with servers in the EU: the full text once per version to build the search index, and the matching sections for each question. Before go-live we check that Mistral does not use this data to train its models. The assistant can be wrong, so every answer shows its source and the mechanic always makes the final call.
 
 Can we meet for 20 minutes to go through it?
 

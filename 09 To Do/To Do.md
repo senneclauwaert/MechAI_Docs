@@ -1,6 +1,6 @@
 ---
 tags: [todo, index]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # To Do
 
@@ -18,7 +18,7 @@ All tasks in one table per sprint. When a task changes, update its **Status** (T
 | T-04 | Agree the role split, the Definition of Done and the team agreements | Senne, Nehad | To do | 9 Nov 2026 |
 | T-05 | Confirm the KPI targets | Senne, Nehad | To do | 9 Nov 2026 |
 | T-06 | Ask the school whether Supercube must be approved as the client, and for the exact dates | Senne | To do | 13 Nov 2026 |
-| T-07 | Create an OpenAI API project with a monthly budget limit (decide whose account it is; see [Open questions](../01%20Project/Open%20questions.md)) | | To do | 9 Nov 2026 |
+| T-07 | Create a Mistral API account (La Plateforme) with a monthly budget limit (decide whose account it is; see [Open questions](../01%20Project/Open%20questions.md)) | | To do | 9 Nov 2026 |
 
 ## Sprint 1: skeleton and baseline assistant (9 – 22 Nov 2026)
 

@@ -1,6 +1,6 @@
 ---
 tags: [decision, history]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Superseded decisions
 
@@ -10,6 +10,7 @@ The plan changed a lot in October 2026. This note lists every earlier choice or 
 
 | Replaced on | What we planned before | What replaced it | Why |
 | --- | --- | --- | --- |
+| 17 Nov 2026 | **The OpenAI API** for answers, embeddings and speech-to-text | **The Mistral API**: Mistral Small, `mistral-embed` and Voxtral ([ADR-38 Mistral API for answers, embeddings and speech-to-text](ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md)) | The team chose not to use OpenAI; one EU provider covers all three jobs at low cost |
 | 6 Nov 2026 | **Azure hosting** (Container Apps, PostgreSQL Flexible Server, Blob Storage, Key Vault, Bicep) with the student credit | **Docker Compose on Supercube's own server**, internal network only ([ADR-24 Self-hosted on Supercube's servers with Docker Compose, reachable only on the internal network](ADR-24%20Self-hosted%20on%20Supercube's%20servers%20with%20Docker%20Compose,%20reachable%20only%20on%20the%20internal%20network.md)) | Company data stays on Supercube's hardware; no cloud bill or credit limit |
 | 6 Nov 2026 | **Azure OpenAI** for answers and embeddings | **The OpenAI API** directly, also for speech-to-text ([ADR-25 OpenAI API for answers, embeddings and speech-to-text](ADR-25%20OpenAI%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md)) | No Azure any more; one provider for all three jobs |
 | 6 Nov 2026 | Four retrieval steps built at once | Baseline first, one step at a time ([ADR-27 Baseline-first retrieval with English query translation](ADR-27%20Baseline-first%20retrieval%20with%20English%20query%20translation.md)) | Advice of both reviews; clearer measurements |
@@ -24,7 +25,7 @@ The plan changed a lot in October 2026. This note lists every earlier choice or 
 | 6 Nov 2026 | The 28 October UI design as the reference | The HTML prototype ([ADR-34 The HTML prototype is the official design; diagrams as Mermaid in the vault](ADR-34%20The%20HTML%20prototype%20is%20the%20official%20design;%20diagrams%20as%20Mermaid%20in%20the%20vault.md)); the 28 October UI was deleted | Senne preferred the HTML prototype |
 | 6 Nov 2026 | Diagrams in FigJam | Mermaid diagrams in this vault ([Diagrams](../06%20Design%20and%20Prototypes/Diagrams.md)) | Stay in sync with the text; visible on GitHub |
 | 6 Nov 2026 | Four sprints from 19 October to 13 December, jury around April 2027 | The school's day-track timeline, sprints from 9 November ([Planning & Deadlines](../01%20Project/Planning%20&%20Deadlines.md)) | The official timeline was published |
-| 6 Nov 2026 | The LangChain starter as a prototype | Archived; plain Python for the build ([ADR-6 Plain Python + OpenAI SDK for the full build (LangChain only in the starter)](ADR-6%20Plain%20Python%20+%20OpenAI%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)) | Explainability |
+| 6 Nov 2026 | The LangChain starter as a prototype | Archived; plain Python for the build ([ADR-6 Plain Python + provider SDK for the full build (LangChain only in the starter)](ADR-6%20Plain%20Python%20+%20provider%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)) | Explainability |
 | 24 Oct 2026 | Project docs in Notion | This Obsidian vault ([ADR-16 Project docs moved from Notion to the Obsidian vault MechAi](ADR-16%20Project%20docs%20moved%20from%20Notion%20to%20the%20Obsidian%20vault%20MechAi.md)) | The Notion free plan ran out of blocks |
 | 24 Oct 2026 | Cloudflare Access in front of the app, like Supercube's operator app | No outside login for now; auth in one module ([ADR-12 No accounts- profile picker + personal PIN, 30-minute idle logout](ADR-12%20No%20accounts-%20profile%20picker%20+%20personal%20PIN,%2030-minute%20idle%20logout.md)) | Build standalone; Supercube may integrate it later. An outside login is not needed on the internal network |
 | 24 Oct 2026 | QR or barcode scanning of parts and karts (in the plan since 5 October) | Pick from a list or search ([ADR-13 No QR codes](ADR-13%20No%20QR%20codes.md)) | Less to build and label; enough for identical karts |

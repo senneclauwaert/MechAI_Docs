@@ -1,16 +1,16 @@
 ---
 id: "ADR-25"
 area: "AI"
-status: "Accepted"
+status: "Superseded by ADR-38"
 date: "2026-11-06"
 tags: [decision]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # ADR-25 OpenAI API for answers, embeddings and speech-to-text
 
 Back to [Decision Log](Decision%20Log.md)
 
-**Status:** Accepted
+**Status:** Superseded by [ADR-38 Mistral API for answers, embeddings and speech-to-text](ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) on 17 November 2026
 
 **Context:** With Azure hosting dropped, Azure OpenAI was no longer the obvious choice.
 

@@ -1,6 +1,6 @@
 ---
 tags: [analysis]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # User & Stakeholder Analysis
 
@@ -47,7 +47,7 @@ Back to [Analysis](Analysis.md)
 | Supercube management | Less downtime, low cost, data stays private | High | Permissions, the fixed safety texts, a server, API access ([Questions for Supercube](../01%20Project/Questions%20for%20Supercube.md)) |
 | Supercube IT | A system that is easy to run and back up | Medium | Server, internal hostname and HTTPS certificate, backups |
 | OTL Italia (kart manufacturer) | Owns the handbook (copyright) | Low | Indirectly, through Supercube's permission |
-| OpenAI (AI service) | Provides the language model, embeddings and speech-to-text | Low | A paid API account; data terms checked before go-live |
+| Mistral (AI service) | Provides the language model, embeddings and speech-to-text | Low | A paid API account; data terms checked before go-live |
 | Senne and Nehad | A working product and a strong grade | High | A clear role split |
 | Erasmushogeschool Brussel (coach and jury) | A complete analysis and a product the team can explain | High | Exact deadlines |
 | Customers (drivers) | Indirect: more karts available, safer karts | Low | Nothing; they don't use the app |

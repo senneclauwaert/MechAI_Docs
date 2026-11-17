@@ -1,6 +1,6 @@
 ---
 tags: [architecture, dev]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Repo & dev setup
 
@@ -18,7 +18,7 @@ mechai/
 │  │  ├─ main.py            # FastAPI app, registers one router per module
 │  │  ├─ worker.py          # job loop (same image, other command)
 │  │  ├─ config.py          # settings from the environment (pydantic-settings)
-│  │  ├─ llm.py             # LLMClient: chat, embed, transcribe (OpenAI)
+│  │  ├─ llm.py             # LLMClient: chat, embed, transcribe (Mistral)
 │  │  ├─ core/              # database, jobs, audit, errors, events
 │  │  └─ modules/
 │  │     ├─ auth/           # profiles, PIN, sessions, roles
@@ -60,7 +60,7 @@ The module template and the steps to add a feature are in [Architecture](Archite
 ## Local setup (target: running in 15 minutes)
 
 1. Install Git, Docker Desktop, Python 3.12, Node 20 LTS and VS Code.
-2. Clone the repository, copy `.env.example` to `.env` and fill in the OpenAI key.
+2. Clone the repository, copy `.env.example` to `.env` and fill in the Mistral API key.
 3. `docker compose -f compose.yaml -f compose.dev.yaml up -d db`
 4. Backend: `cd backend`, create a virtual environment, `pip install -e .[dev]`, `alembic upgrade head`, `uvicorn app.main:app --reload`.
 5. Worker: `python -m app.worker` in a second terminal.
@@ -75,8 +75,8 @@ Locally the app runs on `localhost`, which browsers treat as secure, so the came
 | Name | Example or note |
 | --- | --- |
 | `DATABASE_URL` | `postgresql+psycopg://mechai:…@db:5432/mechai` |
-| `OPENAI_API_KEY` | Never in git |
-| `CHAT_MODEL` / `EMBED_MODEL` / `STT_MODEL` | Model names; `EMBED_MODEL=text-embedding-3-small` |
+| `MISTRAL_API_KEY` | Never in git |
+| `CHAT_MODEL` / `EMBED_MODEL` / `STT_MODEL` | Model names; `EMBED_MODEL=mistral-embed` |
 | `FILES_DIR` | `/data/files` (the Docker volume) |
 | `SUPERCUBE_CLIENT` | `fake` or `real` |
 | `SUPERCUBE_API_URL` / `SUPERCUBE_TOKEN` | Only when access is granted |

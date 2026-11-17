@@ -1,16 +1,16 @@
 ---
 tags: [rag, code]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Framework choice
 
-Back to [RAG and AI](RAG%20and%20AI.md) · Decision: [ADR-6 Plain Python + OpenAI SDK for the full build (LangChain only in the starter)](../10%20Decision%20Log/ADR-6%20Plain%20Python%20+%20OpenAI%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)
+Back to [RAG and AI](RAG%20and%20AI.md) · Decision: [ADR-6 Plain Python + provider SDK for the full build (LangChain only in the starter)](../10%20Decision%20Log/ADR-6%20Plain%20Python%20+%20provider%20SDK%20for%20the%20full%20build%20%28LangChain%20only%20in%20the%20starter%29.md)
 
 A **framework** such as LangChain gives ready-made building blocks: loaders, text splitters, retrievers and chains. It saves typing, but it hides what happens inside, and the jury will ask exactly what happens inside.
 
 ## Decision (6 November 2026)
 
-**Plain Python with the official OpenAI SDK, behind our own small `LLMClient` class.** At most `langchain-text-splitters` may be used for splitting text.
+**Plain Python with the AI provider's official SDK (since 17 November 2026 the Mistral SDK, `mistralai`), behind our own small `LLMClient` class.** At most `langchain-text-splitters` may be used for splitting text.
 
 **Why:**
 

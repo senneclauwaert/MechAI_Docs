@@ -1,7 +1,7 @@
 ---
 tags: [analysis]
 researched: 2026-10-16
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Market & Competitor Analysis
 
@@ -40,7 +40,7 @@ Back to [Analysis](Analysis.md)
 | NL / FR / EN | Varies | Partly | Varies | Yes | **Yes** |
 | Runs on Supercube's own server | No | No | No | No | **Yes** |
 | Mark karts broken and run diagnostics in Supercube's system | No | No | No | No | **Yes** |
-| Cost for Supercube | Quote | \$0–65 per user per month | High | Low | **OpenAI usage only (a few euros per month expected)** |
+| Cost for Supercube | Quote | \$0–65 per user per month | High | Low | **Mistral API usage only (about €5 to €10 a month expected)** |
 
 ## Conclusion
 

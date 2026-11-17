@@ -1,6 +1,6 @@
 ---
 tags: [rag, index]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # RAG and AI
 
@@ -20,8 +20,8 @@ This folder explains the repair assistant: *why* each choice was made, which opt
 
 **Choosing the parts**
 
-- [Answer model (LLM)](Answer%20model%20%28LLM%29.md): the OpenAI API, and how the choice evolved.
-- [Embeddings and reranker](Embeddings%20and%20reranker.md): `text-embedding-3-small`, incremental updates and when a reranker is worth it.
+- [Answer model (LLM)](Answer%20model%20%28LLM%29.md): the Mistral API, and how the choice evolved.
+- [Embeddings and reranker](Embeddings%20and%20reranker.md): `mistral-embed`, incremental updates and when a reranker is worth it.
 - [Handbook ingestion and parsing](Handbook%20ingestion%20and%20parsing.md): the digital PDF, Docling, page images and wiring diagrams.
 - [Vector storage and hybrid search](Vector%20storage%20and%20hybrid%20search.md): PostgreSQL with pgvector, full-text search and RRF.
 - [Retrieval technique choice](Retrieval%20technique%20choice.md): the baseline first, and which known techniques we add or reject.

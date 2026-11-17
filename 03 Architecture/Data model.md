@@ -1,6 +1,6 @@
 ---
 tags: [architecture, database]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Data model
 
@@ -73,7 +73,7 @@ The kart history is one query over `fleet.service_events`, `issues.issues` and `
 - **documents:** title, kart_model, language, source_type (`handbook` / `procedure` / `repair_note`), revision, published_on, superseded_by, file_path. The current revision of each document is the one with no `superseded_by`.
 - **pages:** document_id, page_number, image_path (rendered PNG), text, kind (`text` / `diagram`).
 - **sections:** document_id, section_number (for example `5.3`), heading_path, page_start, page_end, text, token_count, safety_level (`normal` / `high_voltage` / `emergency`).
-- **chunks:** section_id, text (with a context header: document, section, heading), content_hash, token_count, embedding `vector(1536)`, tsv `tsvector` (English full-text search), embedding_model. A new revision reuses the embedding of any chunk whose `content_hash` and `embedding_model` already exist.
+- **chunks:** section_id, text (with a context header: document, section, heading), content_hash, token_count, embedding `vector(1024)`, tsv `tsvector` (English full-text search), embedding_model. A new revision reuses the embedding of any chunk whose `content_hash` and `embedding_model` already exist.
 
 ## assistant
 

@@ -1,6 +1,6 @@
 ---
 tags: [reference, sources]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Sources
 
@@ -106,6 +106,7 @@ Used in [Market & Competitor Analysis](../02%20Analysis/Market%20&%20Competitor%
 
 ## 5. Other checks
 
+- [Mistral API pricing](https://docs.mistral.ai/inference/pricing) (17 November 2026): Mistral Small 4 at $0.15 input / $0.60 output per million tokens (cached input $0.015), Mistral Large 4 at $0.70 / $2.10, `mistral-embed` at $0.10 per million tokens, Voxtral Mini Transcribe 3 at $0.0035 per minute; Mistral Medium 3.5 marked deprecated. Used in [ADR-38 Mistral API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md) and [Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md).
 - Claude pricing ([platform.claude.com pricing](https://platform.claude.com/docs/en/about-claude/pricing), 10 October 2026): Haiku 4.5 at $1 / $5 and Haiku 5.5 at $0.10 / $0.50 per million tokens. Used in [Answer model (LLM)](../04%20RAG%20and%20AI/Answer%20model%20%28LLM%29.md) and [Repair videos](../08%20Parked%20and%20Future%20Ideas/Repair%20videos.md).
 - [Claude vision docs](https://platform.claude.com/docs/en/build-with-claude/vision): image limits, used in [Repair videos](../08%20Parked%20and%20Future%20Ideas/Repair%20videos.md).
 - 3D tools (24 October 2026): glif.app, Meshy, TRELLIS and Hunyuan3D, checked on their own sites. See [3D exploded view](../06%20Design%20and%20Prototypes/3D%20exploded%20view.md).
@@ -124,7 +125,7 @@ These are private company documents. Copies are in the project files under `sour
 > [!IMPORTANT]
 > The figures below are from the team's general knowledge and have not yet been checked on the pages themselves. They must be verified before they go into the final report.
 
-- OpenAI API pricing page (openai.com/api/pricing): `text-embedding-3-small` at about $0.02 per million tokens; speech-to-text at roughly $0.003 to $0.006 per minute. To be re-checked when the models are picked. Used in [Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md).
-- OpenAI's statement that API data is not used for training by default (openai.com, enterprise privacy page). To be re-checked before go-live. Used in [Answer model (LLM)](../04%20RAG%20and%20AI/Answer%20model%20%28LLM%29.md).
+- OpenAI API pricing page (openai.com/api/pricing): `text-embedding-3-small` at about $0.02 per million tokens; speech-to-text at roughly $0.003 to $0.006 per minute. Used until 17 November 2026, when Mistral replaced OpenAI.
+- OpenAI's statement that API data is not used for training by default (openai.com, enterprise privacy page). Used until 17 November 2026.
 - Docker Compose documentation (docs.docker.com/compose) and the `pgvector/pgvector` image on Docker Hub. Used in [Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md).
 - PWA requirements: installation, camera and microphone need a secure context (HTTPS or localhost), per MDN Web Docs. Used in [Hosting and deployment](../03%20Architecture/Hosting%20and%20deployment.md).

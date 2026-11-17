@@ -1,6 +1,6 @@
 ---
 tags: [rag, retrieval]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Embeddings and reranker
 
@@ -10,10 +10,11 @@ An **embedding model** turns a text into a list of numbers (a *vector*) so that 
 
 ## Current decision
 
-**OpenAI `text-embedding-3-small`** through the OpenAI API ([ADR-25 OpenAI API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-25%20OpenAI%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md)). It produces 1,536 numbers per text, works across languages and is very cheap: about $0.02 per million tokens, so the whole handbook costs a fraction of a cent.
+**Mistral `mistral-embed`** through the Mistral API ([ADR-38 Mistral API for answers, embeddings and speech-to-text](../10%20Decision%20Log/ADR-38%20Mistral%20API%20for%20answers,%20embeddings%20and%20speech-to-text.md)). It produces 1,024 numbers per text, works across languages and is cheap: $0.10 per million tokens, so the whole handbook costs under a cent.
 
 - Its Dutch and French quality is checked on our own test set.
-- **Fallback:** `text-embedding-3-large`. Better but more expensive, with 3,072 numbers. The pgvector HNSW index accepts at most 2,000 dimensions, so the vectors would be shortened or stored as `halfvec`.
+- **Other models are tested later** on the test set. Any model with more than 2,000 numbers per text would need shortened vectors or `halfvec`, because the pgvector HNSW index accepts at most 2,000 dimensions.
+- **Earlier choice:** OpenAI `text-embedding-3-small` (6 to 17 November 2026), dropped together with OpenAI.
 
 ## New information does not mean re-embedding everything
 

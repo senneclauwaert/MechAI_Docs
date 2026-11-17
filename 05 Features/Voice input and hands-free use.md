@@ -5,7 +5,7 @@ area: "Frontend"
 sprint: "Sprint 2"
 december: "In (voice questions in the demo)"
 tags: [feature]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Voice input and hands-free use
 
@@ -18,7 +18,7 @@ As a mechanic with dirty hands or gloves, I speak instead of typing, tap big but
 ## What it includes
 
 - A big microphone button wherever text is asked (assistant, issue description, repair log).
-- Speech-to-text through the OpenAI API; the text is shown so the user can check it before sending.
+- Speech-to-text through the Mistral API (Voxtral); the text is shown so the user can check it before sending.
 - Quick-pick buttons instead of free text where possible (reason for an issue, feedback reasons, common repairs).
 - A photo instead of a description.
 - Touch targets of at least 56 px; at most three taps for the main tasks.

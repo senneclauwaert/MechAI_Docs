@@ -1,6 +1,6 @@
 ---
 tags: [reference, links]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Project links
 
@@ -37,5 +37,5 @@ Every link and file location of the project in one place. Pages on claude.ai are
 
 ## Accounts
 
-- OpenAI platform (API key and budget limit): https://platform.openai.com
+- Mistral La Plateforme (API key and budget limit): https://console.mistral.ai
 - GitHub: private repositories for the documentation and the code.

@@ -1,6 +1,6 @@
 ---
 tags: [analysis, requirements]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Requirements (functional & non-functional)
 
@@ -104,7 +104,7 @@ QR codes; an outside login service; repair videos turned into steps; camera stoc
 - PINs are stored only as an Argon2 hash. The session lives in an http-only cookie. PIN attempts are rate limited.
 - Secrets live in an `.env` file or Docker secrets on the server, never in git.
 - Photos and page images are served only through the backend, after sign-in.
-- Only the handbook sections needed for one question are sent to the OpenAI API, after Supercube's written OK. Traces stay in our own database.
+- Only the handbook sections needed for one question are sent to the Mistral API, after Supercube's written OK. Traces stay in our own database.
 - The manufacturer's handbook never goes into git or any public place.
 
 ### Reliability and error handling
@@ -115,7 +115,7 @@ QR codes; an outside login service; repair videos turned into steps; camera stoc
 
 ### Cost
 
-- The OpenAI API is the only running cost: a small chat model and `text-embedding-3-small`. A monthly budget limit, a question limit per user, a daily cap and a switch that turns AI answers off.
+- The Mistral API is the only running cost: Mistral Small and `mistral-embed` (about $5 to $8 a month for 3,000 questions). A monthly budget limit, a question limit per user, a daily cap and a switch that turns AI answers off.
 - Hosting runs on Supercube's own server, so there is no cloud bill.
 
 ### Maintainability

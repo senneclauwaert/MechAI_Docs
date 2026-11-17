@@ -1,6 +1,6 @@
 ---
 tags: [project, open, supercube]
-updated: 2026-11-06
+updated: 2026-11-17
 ---
 # Questions for Supercube
 
@@ -13,7 +13,7 @@ This note collects everything the MechAi team needs from Supercube, grouped by t
 We propose to settle these points on one page that Supercube signs.
 
 - [ ] May MechAi store the Storm handbook on Supercube's server and use it inside the app? (The handbook belongs to OTL Italia.)
-- [ ] May the handbook text be sent to the OpenAI API? Two things are sent: **the full text once per handbook version**, to build the search index (embeddings), and **the matching sections for each question**, to write the answer. According to OpenAI's API terms, API data is not used to train models (to re-check before go-live). Until this is signed, we only work with a few test pages.
+- [ ] May the handbook text be sent to the Mistral API (a French AI company with servers in the EU)? Two things are sent: **the full text once per handbook version**, to build the search index (embeddings), and **the matching sections for each question**, to write the answer. Before go-live we check Mistral's API terms on training with our data and switch that off where possible. Until this is signed, we only work with a few test pages.
 - [ ] May MechAi connect to Supercube's GraphQL API, both to read kart status and alerts and to mark karts broken or repaired and run diagnostics?
 - [ ] May we show a few handbook pages and screenshots of MechAi at school presentations and in the final report?
 - [ ] Will Supercube write or approve the fixed safety texts (see section 4)?
@@ -22,14 +22,14 @@ We propose to settle these points on one page that Supercube signs.
 ## 2. Server and network
 
 - [ ] Which server will MechAi run on, and what does it run (operating system, Docker, Kubernetes)? MechAi is delivered as Docker containers with a Docker Compose file. Kubernetes files can be added if Supercube's IT uses Kubernetes.
-- [ ] Can the server reach the internet for outgoing calls to the OpenAI API (`api.openai.com`)?
+- [ ] Can the server reach the internet for outgoing calls to the Mistral API (`api.mistral.ai`)?
 - [ ] Is the customers' guest Wi-Fi a separate network from the internal one?
 - [ ] May our documentation, which our teachers read, describe your GraphQL API schema?
 - [ ] Who should own the code at the end of the project, and who maintains it afterwards?
 - [ ] Which internal hostname can MechAi use, and can Supercube IT provide an HTTPS certificate for it? Installing the app on a tablet, the camera and the microphone only work over HTTPS.
 - [ ] Are the workshop tablets and the mechanics' phones on the internal Wi-Fi network?
 - [ ] Who sets up the nightly backup of the database and the file folder, and where are backups stored?
-- [ ] Would Supercube rather use its own OpenAI account (or another AI provider it already has a contract with)? MechAi can switch provider in one place.
+- [ ] Would Supercube rather use its own Mistral account (or another AI provider it already has a contract with)? MechAi can switch provider in one place.
 
 ## 3. GraphQL API
 
